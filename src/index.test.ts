@@ -1,12 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { BlurRise, Float, Grain, Stagger, prefix } from './index';
+import {
+  BlurRise,
+  Button,
+  Card,
+  Float,
+  Grain,
+  Heading,
+  Stagger,
+  prefix,
+} from './index';
 
 describe('package entry', () => {
-  it('exports the css prefix and motion primitives', () => {
+  it('exports motion primitives and the core kit', () => {
     expect(prefix).toBe('br');
     expect(BlurRise).toBeTypeOf('function');
     expect(Stagger).toBeTypeOf('function');
     expect(Grain).toBeTypeOf('function');
     expect(Float).toBeTypeOf('function');
+    expect(Button).toBeTypeOf('function');
+    expect(Card).toBeTypeOf('function');
+    expect(Heading).toBeTypeOf('function');
   });
 });

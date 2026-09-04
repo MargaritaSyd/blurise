@@ -22,6 +22,8 @@ const requiredTokens = [
   '--br-float-rotate',
   '--br-stagger-gap',
   '--br-grain-opacity',
+  '--br-shadow',
+  '--br-container-md',
 ];
 
 describe('design tokens', () => {
