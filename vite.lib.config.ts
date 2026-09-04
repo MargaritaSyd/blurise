@@ -11,7 +11,12 @@ export default defineConfig({
     react(),
     dts({
       include: ['src'],
-      exclude: ['src/**/*.stories.*', 'src/**/*.test.*', 'src/test-setup.ts'],
+      exclude: [
+        'src/**/*.stories.*',
+        'src/**/*.test.*',
+        'src/test-setup.ts',
+        'src/stories/**',
+      ],
       rollupTypes: true,
     }),
   ],
