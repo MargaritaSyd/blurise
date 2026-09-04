@@ -1,0 +1,89 @@
+:root,
+[data-br-theme='dark'] {
+  color-scheme: dark;
+
+  --br-color-bg: #0a0b0e;
+  --br-color-surface: #14161c;
+  --br-color-elevated: #1c1f27;
+  --br-color-border: #2a2e38;
+  --br-color-text: #efece4;
+  --br-color-muted: #8c887e;
+  --br-color-accent: #d4b483;
+  --br-color-accent-hover: #e2c79a;
+  --br-color-focus: #8eb4ff;
+  --br-color-danger: #e07a6e;
+  --br-color-success: #8fbe8b;
+
+  --br-space-1: 0.25rem;
+  --br-space-2: 0.5rem;
+  --br-space-3: 0.75rem;
+  --br-space-4: 1rem;
+  --br-space-5: 1.5rem;
+  --br-space-6: 2rem;
+  --br-space-8: 3rem;
+  --br-space-10: 4rem;
+
+  --br-radius-sm: 0.25rem;
+  --br-radius-md: 0.5rem;
+  --br-radius-lg: 0.75rem;
+  --br-radius-full: 9999px;
+
+  --br-font-sans:
+    'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --br-font-size-xs: 0.75rem;
+  --br-font-size-sm: 0.875rem;
+  --br-font-size-md: 1rem;
+  --br-font-size-lg: 1.25rem;
+  --br-font-size-xl: 1.75rem;
+  --br-font-size-2xl: 2.5rem;
+  --br-font-size-3xl: 3.5rem;
+  --br-leading-tight: 1.15;
+  --br-leading-normal: 1.5;
+  --br-leading-loose: 1.7;
+  --br-weight-regular: 400;
+  --br-weight-medium: 500;
+  --br-weight-semibold: 600;
+
+  --br-duration-fast: 180ms;
+  --br-duration-med: 280ms;
+  --br-duration-rise: 700ms;
+  --br-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --br-ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --br-blur-from: 16px;
+  --br-rise-from: 18px;
+  --br-float-amp: 6px;
+  --br-float-duration: 5s;
+  --br-stagger-gap: 60ms;
+  --br-grain-opacity: 0.06;
+}
+
+[data-br-theme='light'] {
+  color-scheme: light;
+
+  --br-color-bg: #f3efe6;
+  --br-color-surface: #fffdf8;
+  --br-color-elevated: #ffffff;
+  --br-color-border: #ddd6c8;
+  --br-color-text: #1a1c21;
+  --br-color-muted: #6b675f;
+  --br-color-accent: #9a7540;
+  --br-color-accent-hover: #7e5e32;
+  --br-color-focus: #3d6fd9;
+  --br-color-danger: #c24b40;
+  --br-color-success: #3f7d4a;
+  --br-grain-opacity: 0.04;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  [data-br-theme] {
+    --br-duration-fast: 1ms;
+    --br-duration-med: 1ms;
+    --br-duration-rise: 1ms;
+    --br-blur-from: 0px;
+    --br-rise-from: 0px;
+    --br-float-amp: 0px;
+    --br-float-duration: 1ms;
+    --br-stagger-gap: 0ms;
+  }
+}
