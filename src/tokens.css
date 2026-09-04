@@ -56,6 +56,10 @@
   --br-float-duration: 5s;
   --br-stagger-gap: 60ms;
   --br-grain-opacity: 0.06;
+  --br-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+  --br-container-sm: 32rem;
+  --br-container-md: 48rem;
+  --br-container-lg: 72rem;
 }
 
 [data-br-theme='light'] {
@@ -73,6 +77,7 @@
   --br-color-danger: #c24b40;
   --br-color-success: #3f7d4a;
   --br-grain-opacity: 0.04;
+  --br-shadow: 0 18px 40px rgba(40, 32, 20, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {
