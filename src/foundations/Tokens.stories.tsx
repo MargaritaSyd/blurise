@@ -44,6 +44,7 @@ const motion = [
   '--br-rise-from',
   '--br-float-amp',
   '--br-float-duration',
+  '--br-float-rotate',
   '--br-stagger-gap',
   '--br-grain-opacity',
 ] as const;

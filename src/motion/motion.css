@@ -1,1 +1,135 @@
-/* Motion primitives (blur-rise, stagger, grain, idle float) land in Phase 1. */
+@keyframes br-rise {
+  from {
+    opacity: 0;
+    filter: blur(var(--br-blur-from));
+    transform: translateY(var(--br-rise-from));
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes br-rise-reduced {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes br-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(calc(var(--br-float-rotate) * -1));
+  }
+
+  50% {
+    transform: translateY(calc(var(--br-float-amp) * -1))
+      rotate(var(--br-float-rotate));
+  }
+}
+
+.br-rise:not(.br-rise-active) {
+  opacity: 0;
+  filter: blur(var(--br-blur-from));
+  transform: translateY(var(--br-rise-from));
+}
+
+.br-rise.br-rise-active {
+  animation: br-rise var(--br-duration-rise) var(--br-ease-cinematic) both;
+  animation-delay: calc(var(--br-i, 0) * var(--br-stagger-gap));
+}
+
+.br-stagger > :nth-child(1) {
+  --br-i: 0;
+}
+.br-stagger > :nth-child(2) {
+  --br-i: 1;
+}
+.br-stagger > :nth-child(3) {
+  --br-i: 2;
+}
+.br-stagger > :nth-child(4) {
+  --br-i: 3;
+}
+.br-stagger > :nth-child(5) {
+  --br-i: 4;
+}
+.br-stagger > :nth-child(6) {
+  --br-i: 5;
+}
+.br-stagger > :nth-child(7) {
+  --br-i: 6;
+}
+.br-stagger > :nth-child(8) {
+  --br-i: 7;
+}
+.br-stagger > :nth-child(9) {
+  --br-i: 8;
+}
+.br-stagger > :nth-child(10) {
+  --br-i: 9;
+}
+.br-stagger > :nth-child(11) {
+  --br-i: 10;
+}
+.br-stagger > :nth-child(12) {
+  --br-i: 11;
+}
+.br-stagger > :nth-child(13) {
+  --br-i: 12;
+}
+.br-stagger > :nth-child(14) {
+  --br-i: 13;
+}
+.br-stagger > :nth-child(15) {
+  --br-i: 14;
+}
+.br-stagger > :nth-child(16) {
+  --br-i: 15;
+}
+
+.br-grain {
+  --br-grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.br-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+  opacity: var(--br-grain-opacity);
+  mix-blend-mode: overlay;
+  background-image: var(--br-grain-image);
+  background-size: 180px 180px;
+}
+
+.br-float {
+  animation: br-float var(--br-float-duration) ease-in-out infinite;
+  animation-delay: calc(var(--br-i, 0) * var(--br-stagger-gap));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .br-rise:not(.br-rise-active) {
+    filter: none;
+    transform: none;
+  }
+
+  .br-rise.br-rise-active {
+    animation-name: br-rise-reduced;
+  }
+
+  .br-float {
+    animation: none;
+  }
+}

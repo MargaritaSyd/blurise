@@ -19,6 +19,7 @@ const requiredTokens = [
   '--br-blur-from',
   '--br-rise-from',
   '--br-float-amp',
+  '--br-float-rotate',
   '--br-stagger-gap',
   '--br-grain-opacity',
 ];

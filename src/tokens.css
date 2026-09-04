@@ -52,6 +52,7 @@
   --br-blur-from: 16px;
   --br-rise-from: 18px;
   --br-float-amp: 6px;
+  --br-float-rotate: 0.35deg;
   --br-float-duration: 5s;
   --br-stagger-gap: 60ms;
   --br-grain-opacity: 0.06;
@@ -83,6 +84,7 @@
     --br-blur-from: 0px;
     --br-rise-from: 0px;
     --br-float-amp: 0px;
+    --br-float-rotate: 0deg;
     --br-float-duration: 1ms;
     --br-stagger-gap: 0ms;
   }
