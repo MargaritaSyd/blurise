@@ -3,13 +3,22 @@ import './styles.css';
 
 export { prefix } from './prefix';
 export {
+  BlurFade,
+  BlurFall,
   BlurRise,
   Float,
   Grain,
+  ScaleRise,
+  Slide,
   Stagger,
+  type BlurFadeProps,
+  type BlurFallProps,
   type BlurRiseProps,
   type FloatProps,
   type GrainProps,
+  type ScaleRiseProps,
+  type SlideFrom,
+  type SlideProps,
   type StaggerProps,
 } from './motion';
 export {

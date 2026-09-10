@@ -51,6 +51,8 @@
   --br-ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
   --br-blur-from: 16px;
   --br-rise-from: 18px;
+  --br-scale-from: 0.96;
+  --br-slide-from: 24px;
   --br-float-amp: 6px;
   --br-float-rotate: 0.35deg;
   --br-float-duration: 5s;
@@ -93,6 +95,8 @@
     --br-duration-rise: 1ms;
     --br-blur-from: 0px;
     --br-rise-from: 0px;
+    --br-scale-from: 1;
+    --br-slide-from: 0px;
     --br-float-amp: 0px;
     --br-float-rotate: 0deg;
     --br-float-duration: 1ms;

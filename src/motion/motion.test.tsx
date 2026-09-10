@@ -2,9 +2,13 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { act, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { BlurFade } from './BlurFade';
+import { BlurFall } from './BlurFall';
 import { BlurRise } from './BlurRise';
 import { Float } from './Float';
 import { Grain } from './Grain';
+import { ScaleRise } from './ScaleRise';
+import { Slide } from './Slide';
 import { Stagger } from './Stagger';
 
 const css = readFileSync(
@@ -16,9 +20,18 @@ describe('motion.css', () => {
   it.each([
     '@keyframes br-rise',
     '@keyframes br-rise-reduced',
+    '@keyframes br-fade',
+    '@keyframes br-scale-rise',
+    '@keyframes br-slide',
+    '@keyframes br-fall',
+    '@keyframes br-fall-reduced',
     '@keyframes br-float',
     '.br-rise',
     '.br-rise-active',
+    '.br-fade',
+    '.br-scale-rise',
+    '.br-slide',
+    '.br-fall',
     '.br-stagger',
     '.br-grain',
     '.br-float',
@@ -69,6 +82,46 @@ describe('BlurRise', () => {
 
     expect(node).toHaveClass('br-rise-active');
     expect(disconnect).toHaveBeenCalled();
+  });
+});
+
+describe('BlurFade', () => {
+  it('applies fade classes on mount', () => {
+    render(<BlurFade>Soft</BlurFade>);
+    expect(screen.getByText('Soft')).toHaveClass('br-fade', 'br-fade-active');
+  });
+});
+
+describe('ScaleRise', () => {
+  it('applies scale-rise classes on mount', () => {
+    render(<ScaleRise>Hero</ScaleRise>);
+    expect(screen.getByText('Hero')).toHaveClass(
+      'br-scale-rise',
+      'br-scale-rise-active',
+    );
+  });
+});
+
+describe('Slide', () => {
+  it('sets direction and active classes', () => {
+    render(<Slide from="left">Side</Slide>);
+    expect(screen.getByText('Side')).toHaveClass(
+      'br-slide',
+      'br-slide--left',
+      'br-slide-active',
+    );
+  });
+});
+
+describe('BlurFall', () => {
+  it('stays settled until active', () => {
+    const { rerender } = render(<BlurFall>Leave</BlurFall>);
+    const node = screen.getByText('Leave');
+    expect(node).toHaveClass('br-fall');
+    expect(node).not.toHaveClass('br-fall-active');
+
+    rerender(<BlurFall active>Leave</BlurFall>);
+    expect(node).toHaveClass('br-fall-active');
   });
 });
 

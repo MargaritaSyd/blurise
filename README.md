@@ -48,6 +48,10 @@ Default (and `:root`) is dark. Switch with `data-br-theme`:
 | Primitive  | React                  | Role                                                 |
 | ---------- | ---------------------- | ---------------------------------------------------- |
 | Blur rise  | `BlurRise`             | Enter with blur + lift + opacity. Optional `inView`. |
+| Blur fade  | `BlurFade`             | Enter with blur + opacity (no translate).            |
+| Scale rise | `ScaleRise`            | Enter with blur + lift + soft scale.                 |
+| Slide      | `Slide`                | Enter from `up` / `down` / `left` / `right`.         |
+| Blur fall  | `BlurFall`             | Exit with blur + drop + fade (`active`).             |
 | Stagger    | `Stagger`              | Cascading delays via `--br-i`.                       |
 | Grain      | `Grain` / `Card grain` | Film texture overlay (not motion).                   |
 | Idle float | `Float` / `Card float` | Soft loop; off under `prefers-reduced-motion`.       |
@@ -75,7 +79,7 @@ Keep transform animations on separate wrappers so rise and float do not collide:
 
 ## Accessibility
 
-- `prefers-reduced-motion` is honored from day one (opacity-only rise; float disabled).
+- `prefers-reduced-motion` is honored from day one (opacity-only enters/exits; float disabled).
 - Focus-visible rings on interactive controls.
 - Dialog traps focus, locks scroll, and closes on Escape.
 - Menus and tabs support arrow-key navigation.

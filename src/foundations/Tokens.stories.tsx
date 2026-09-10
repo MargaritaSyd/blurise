@@ -42,6 +42,8 @@ const motion = [
   '--br-ease-cinematic',
   '--br-blur-from',
   '--br-rise-from',
+  '--br-scale-from',
+  '--br-slide-from',
   '--br-float-amp',
   '--br-float-duration',
   '--br-float-rotate',

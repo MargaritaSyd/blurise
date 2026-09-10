@@ -2,23 +2,28 @@ import { cx } from '../lib/cx';
 import type { BoxProps } from './types';
 import { useMotionActive } from './useMotionActive';
 
-export type BlurRiseProps = BoxProps & {
-  /** Wait until the element is on screen before playing the rise. */
+export type ScaleRiseProps = BoxProps & {
+  /** Wait until the element is on screen before playing. */
   inView?: boolean;
 };
 
-export function BlurRise({
+/** Enter with blur, lift, scale, and opacity. */
+export function ScaleRise({
   as: Tag = 'div',
   inView = false,
   className,
   children,
   ...rest
-}: BlurRiseProps) {
+}: ScaleRiseProps) {
   const { ref, active } = useMotionActive(inView);
 
   return (
     <Tag
-      className={cx('br-rise', active && 'br-rise-active', className)}
+      className={cx(
+        'br-scale-rise',
+        active && 'br-scale-rise-active',
+        className,
+      )}
       {...rest}
       ref={ref}
     >
@@ -27,4 +32,4 @@ export function BlurRise({
   );
 }
 
-BlurRise.displayName = 'BlurRise';
+ScaleRise.displayName = 'ScaleRise';
