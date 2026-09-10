@@ -96,6 +96,27 @@
   }
 }
 
+@keyframes br-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(var(--br-breathe-scale));
+  }
+}
+
+@keyframes br-shimmer {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
 .br-rise:not(.br-rise-active) {
   opacity: 0;
   filter: blur(var(--br-blur-from));
@@ -237,6 +258,38 @@
   animation-delay: calc(var(--br-i, 0) * var(--br-stagger-gap));
 }
 
+.br-breathe {
+  transform-origin: center;
+  animation: br-breathe var(--br-breathe-duration) ease-in-out infinite;
+  animation-delay: calc(var(--br-i, 0) * var(--br-stagger-gap));
+}
+
+.br-shimmer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.br-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 55%;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--br-shimmer-opacity);
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    var(--br-color-text) 50%,
+    transparent 80%
+  );
+  animation: br-shimmer var(--br-shimmer-duration) ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .br-rise:not(.br-rise-active),
   .br-scale-rise:not(.br-scale-rise-active),
@@ -260,7 +313,13 @@
     animation-name: br-fall-reduced;
   }
 
-  .br-float {
+  .br-float,
+  .br-breathe,
+  .br-shimmer::after {
     animation: none;
+  }
+
+  .br-shimmer::after {
+    opacity: 0;
   }
 }

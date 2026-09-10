@@ -47,6 +47,10 @@ const motion = [
   '--br-float-amp',
   '--br-float-duration',
   '--br-float-rotate',
+  '--br-breathe-scale',
+  '--br-breathe-duration',
+  '--br-shimmer-duration',
+  '--br-shimmer-opacity',
   '--br-stagger-gap',
   '--br-grain-opacity',
 ] as const;

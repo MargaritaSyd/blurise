@@ -116,18 +116,48 @@ import { Float } from 'blurise';
 <Card float>…</Card>;
 ```
 
+## Breathe
+
+Soft scale pulse. Prefer this over `Float` when another transform already owns translate.
+
+```tsx
+import { Breathe } from 'blurise';
+
+<Breathe>…</Breathe>;
+```
+
+- Class: `.br-breathe`
+- Tokens: `--br-breathe-scale`, `--br-breathe-duration`
+- Do not nest `Breathe` and `Float` on the same node
+
+## Shimmer
+
+Sweeping highlight for skeletons / loading surfaces.
+
+```tsx
+import { Shimmer } from 'blurise';
+
+<Shimmer>…</Shimmer>;
+```
+
+- Class: `.br-shimmer`
+- Tokens: `--br-shimmer-duration`, `--br-shimmer-opacity`
+- Override with `opacity` on `Shimmer`
+
+Float, breathe, and shimmer all stop under `prefers-reduced-motion`.
+
 ## Composition
 
-Put transform animations on **separate wrappers** so enter and float do not fight:
+Put transform animations on **separate wrappers** so enter and idle do not fight:
 
 ```tsx
 <Stagger gap={90}>
   <ScaleRise>
-    <Float>
+    <Breathe>
       <Grain>
         <article>…</article>
       </Grain>
-    </Float>
+    </Breathe>
   </ScaleRise>
 </Stagger>
 ```
@@ -136,4 +166,4 @@ Put transform animations on **separate wrappers** so enter and float do not figh
 
 Dialog panels and menus use a **short** blur-rise. Backdrops only fade. Toasts rise once into the viewport.
 
-See **Motion / Primitives** and **Motion / Enter exit** for interactive demos.
+See **Motion / Primitives**, **Motion / Enter exit**, and **Motion / Idle** for interactive demos.

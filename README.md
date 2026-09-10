@@ -54,7 +54,9 @@ Default (and `:root`) is dark. Switch with `data-br-theme`:
 | Blur fall  | `BlurFall`             | Exit with blur + drop + fade (`active`).             |
 | Stagger    | `Stagger`              | Cascading delays via `--br-i`.                       |
 | Grain      | `Grain` / `Card grain` | Film texture overlay (not motion).                   |
-| Idle float | `Float` / `Card float` | Soft loop; off under `prefers-reduced-motion`.       |
+| Idle float | `Float` / `Card float` | Soft translate/rotate loop.                          |
+| Breathe    | `Breathe`              | Soft scale pulse (when translate would collide).     |
+| Shimmer    | `Shimmer`              | Loading / skeleton highlight sweep.                  |
 
 Keep transform animations on separate wrappers so rise and float do not collide:
 
@@ -79,7 +81,7 @@ Keep transform animations on separate wrappers so rise and float do not collide:
 
 ## Accessibility
 
-- `prefers-reduced-motion` is honored from day one (opacity-only enters/exits; float disabled).
+- `prefers-reduced-motion` is honored from day one (opacity-only enters/exits; float, breathe, and shimmer disabled).
 - Focus-visible rings on interactive controls.
 - Dialog traps focus, locks scroll, and closes on Escape.
 - Menus and tabs support arrow-key navigation.

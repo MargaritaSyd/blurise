@@ -2,12 +2,14 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { act, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { Breathe } from './Breathe';
 import { BlurFade } from './BlurFade';
 import { BlurFall } from './BlurFall';
 import { BlurRise } from './BlurRise';
 import { Float } from './Float';
 import { Grain } from './Grain';
 import { ScaleRise } from './ScaleRise';
+import { Shimmer } from './Shimmer';
 import { Slide } from './Slide';
 import { Stagger } from './Stagger';
 
@@ -26,6 +28,8 @@ describe('motion.css', () => {
     '@keyframes br-fall',
     '@keyframes br-fall-reduced',
     '@keyframes br-float',
+    '@keyframes br-breathe',
+    '@keyframes br-shimmer',
     '.br-rise',
     '.br-rise-active',
     '.br-fade',
@@ -35,6 +39,8 @@ describe('motion.css', () => {
     '.br-stagger',
     '.br-grain',
     '.br-float',
+    '.br-breathe',
+    '.br-shimmer',
     'prefers-reduced-motion',
   ])('contains %s', (snippet) => {
     expect(css).toContain(snippet);
@@ -157,5 +163,21 @@ describe('Float', () => {
   it('applies the float class', () => {
     render(<Float>Drift</Float>);
     expect(screen.getByText('Drift')).toHaveClass('br-float');
+  });
+});
+
+describe('Breathe', () => {
+  it('applies the breathe class', () => {
+    render(<Breathe>Pulse</Breathe>);
+    expect(screen.getByText('Pulse')).toHaveClass('br-breathe');
+  });
+});
+
+describe('Shimmer', () => {
+  it('applies the shimmer class and opacity override', () => {
+    const { container } = render(<Shimmer opacity={0.2}>Load</Shimmer>);
+    const root = container.firstElementChild as HTMLElement;
+    expect(root).toHaveClass('br-shimmer');
+    expect(root.style.getPropertyValue('--br-shimmer-opacity')).toBe('0.2');
   });
 });

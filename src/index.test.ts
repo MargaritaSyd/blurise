@@ -3,6 +3,7 @@ import {
   BlurFade,
   BlurFall,
   BlurRise,
+  Breathe,
   Button,
   Card,
   Dialog,
@@ -11,6 +12,7 @@ import {
   Heading,
   Menu,
   ScaleRise,
+  Shimmer,
   Slide,
   Stagger,
   Tabs,
@@ -26,6 +28,8 @@ describe('package entry', () => {
     expect(ScaleRise).toBeTypeOf('function');
     expect(Slide).toBeTypeOf('function');
     expect(BlurFall).toBeTypeOf('function');
+    expect(Breathe).toBeTypeOf('function');
+    expect(Shimmer).toBeTypeOf('function');
     expect(Stagger).toBeTypeOf('function');
     expect(Grain).toBeTypeOf('function');
     expect(Float).toBeTypeOf('function');

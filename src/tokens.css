@@ -56,6 +56,10 @@
   --br-float-amp: 6px;
   --br-float-rotate: 0.35deg;
   --br-float-duration: 5s;
+  --br-breathe-scale: 1.02;
+  --br-breathe-duration: 4s;
+  --br-shimmer-duration: 1.6s;
+  --br-shimmer-opacity: 0.14;
   --br-stagger-gap: 60ms;
   --br-grain-opacity: 0.06;
   --br-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
@@ -83,6 +87,7 @@
   --br-color-danger: #c24b40;
   --br-color-success: #3f7d4a;
   --br-grain-opacity: 0.04;
+  --br-shimmer-opacity: 0.1;
   --br-shadow: 0 18px 40px rgba(40, 32, 20, 0.08);
   --br-color-overlay: rgba(40, 32, 20, 0.35);
 }
@@ -100,6 +105,9 @@
     --br-float-amp: 0px;
     --br-float-rotate: 0deg;
     --br-float-duration: 1ms;
+    --br-breathe-scale: 1;
+    --br-breathe-duration: 1ms;
+    --br-shimmer-duration: 1ms;
     --br-stagger-gap: 0ms;
   }
 }
