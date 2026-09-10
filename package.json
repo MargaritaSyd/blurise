@@ -1,6 +1,6 @@
 {
   "name": "blurise",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "React component library with cinematic motion — blur-rise, staggered reveals, grain, and idle float.",
   "license": "MIT",
   "type": "module",
@@ -30,11 +30,24 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
   },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "motion",
+    "css",
+    "design-system",
+    "blurise"
+  ],
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

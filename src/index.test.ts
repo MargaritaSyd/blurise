@@ -3,10 +3,14 @@ import {
   BlurRise,
   Button,
   Card,
+  Dialog,
   Float,
   Grain,
   Heading,
+  Menu,
   Stagger,
+  Tabs,
+  ToastProvider,
   prefix,
 } from './index';
 
@@ -20,5 +24,9 @@ describe('package entry', () => {
     expect(Button).toBeTypeOf('function');
     expect(Card).toBeTypeOf('function');
     expect(Heading).toBeTypeOf('function');
+    expect(Dialog).toBeTypeOf('function');
+    expect(Menu).toBeTypeOf('function');
+    expect(Tabs).toBeTypeOf('function');
+    expect(ToastProvider).toBeTypeOf('function');
   });
 });

@@ -1,0 +1,102 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Motion language" />
+
+# Motion language
+
+blurise is defined by four primitives. Components are the vehicle; this language is the product.
+
+## Blur rise
+
+Enter with **opacity**, **blur**, and **translateY**, eased by `--br-ease-cinematic`.
+
+```tsx
+import { BlurRise } from 'blurise';
+
+<BlurRise>…</BlurRise>
+<BlurRise inView>…</BlurRise>
+```
+
+- Class: `.br-rise` → `.br-rise-active`
+- Tokens: `--br-duration-rise`, `--br-blur-from`, `--br-rise-from`
+- With `inView`, Intersection Observer adds `.br-rise-active` once, then disconnects
+- Under `prefers-reduced-motion`, rise becomes opacity-only (`br-rise-reduced`)
+
+## Stagger
+
+Cascade child delays with `--br-i` and `--br-stagger-gap`.
+
+```tsx
+import { BlurRise, Stagger } from 'blurise';
+
+<Stagger gap={80}>
+  <BlurRise>One</BlurRise>
+  <BlurRise>Two</BlurRise>
+  <BlurRise>Three</BlurRise>
+</Stagger>;
+```
+
+`Stagger` sets `--br-i` on each child. CSS also covers the first 16 children via `:nth-child` as a fallback.
+
+## Grain
+
+A tiled SVG turbulence overlay. **Texture, not motion.**
+
+```tsx
+import { Grain } from 'blurise';
+// or
+<Card grain>…</Card>;
+```
+
+- Class: `.br-grain`
+- Token: `--br-grain-opacity` (lower in light theme)
+- Override with `opacity` on `Grain`
+
+## Idle float
+
+A slow translate / rotate loop for surfaces that should feel alive.
+
+```tsx
+import { Float } from 'blurise';
+// or
+<Card float>…</Card>;
+```
+
+- Class: `.br-float`
+- Tokens: `--br-float-amp`, `--br-float-rotate`, `--br-float-duration`
+- Disabled under `prefers-reduced-motion`
+- Do **not** float dialogs or menus
+
+## Composition
+
+Put transform animations on **separate wrappers** so rise and float do not fight:
+
+```tsx
+<Stagger gap={90}>
+  <BlurRise>
+    <Float>
+      <Grain>
+        <article>…</article>
+      </Grain>
+    </Float>
+  </BlurRise>
+</Stagger>
+```
+
+On kit cards:
+
+```tsx
+<Card rise grain>
+  Quiet entry with film texture
+</Card>
+
+<Card float grain>
+  Idle float on an outer wrapper
+</Card>
+```
+
+## Overlay motion
+
+Dialog panels and menus use a **short** blur-rise (`--br-duration-med`, smaller blur/rise). Backdrops only fade. Toasts rise once into the viewport.
+
+See **Motion / Primitives** for interactive demos.

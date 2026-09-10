@@ -4,6 +4,11 @@ import '../src/styles.css';
 const preview: Preview = {
   parameters: {
     layout: 'centered',
+    options: {
+      storySort: {
+        order: ['Docs', 'Foundations', 'Motion', 'Kit'],
+      },
+    },
     backgrounds: {
       default: 'cinematic',
       values: [

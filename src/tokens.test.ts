@@ -24,6 +24,8 @@ const requiredTokens = [
   '--br-grain-opacity',
   '--br-shadow',
   '--br-container-md',
+  '--br-z-overlay',
+  '--br-color-overlay',
 ];
 
 describe('design tokens', () => {

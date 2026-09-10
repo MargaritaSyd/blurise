@@ -1,0 +1,291 @@
+@keyframes br-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.br-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: var(--br-z-overlay);
+  display: grid;
+  place-items: center;
+  padding: var(--br-space-5);
+}
+
+.br-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--br-color-overlay);
+  animation: br-fade-in var(--br-duration-med) var(--br-ease-standard) both;
+}
+
+.br-dialog-panel {
+  --br-duration-rise: var(--br-duration-med);
+  --br-rise-from: 12px;
+  --br-blur-from: 8px;
+  position: relative;
+  z-index: 1;
+  width: min(100%, 28rem);
+  padding: var(--br-space-5);
+  background: var(--br-color-surface);
+  border: 1px solid var(--br-color-border);
+  border-radius: var(--br-radius-lg);
+  box-shadow: var(--br-shadow);
+  font-family: var(--br-font-sans);
+  color: var(--br-color-text);
+}
+
+.br-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--br-space-3);
+  margin-bottom: var(--br-space-4);
+}
+
+.br-dialog-body {
+  display: grid;
+  gap: var(--br-space-4);
+}
+
+.br-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.br-menu-content {
+  --br-duration-rise: var(--br-duration-med);
+  --br-rise-from: 8px;
+  --br-blur-from: 8px;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  z-index: var(--br-z-overlay);
+  min-width: 12rem;
+  padding: var(--br-space-1);
+  background: var(--br-color-elevated);
+  border: 1px solid var(--br-color-border);
+  border-radius: var(--br-radius-md);
+  box-shadow: var(--br-shadow);
+}
+
+.br-menu-item {
+  appearance: none;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  border: 0;
+  border-radius: var(--br-radius-sm);
+  background: transparent;
+  color: var(--br-color-text);
+  font-family: var(--br-font-sans);
+  font-size: var(--br-font-size-sm);
+  text-align: left;
+  cursor: pointer;
+}
+
+.br-menu-item:hover,
+.br-menu-item:focus-visible {
+  background: var(--br-color-surface);
+  outline: none;
+}
+
+.br-menu-item--danger {
+  color: var(--br-color-danger);
+}
+
+.br-menu-item:disabled,
+.br-menu-item[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.br-menu-separator {
+  border: 0;
+  height: 1px;
+  margin: var(--br-space-1) 0;
+  background: var(--br-color-border);
+}
+
+.br-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.br-tooltip-content {
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  z-index: var(--br-z-tooltip);
+  translate: -50% 0;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--br-radius-sm);
+  background: var(--br-color-elevated);
+  border: 1px solid var(--br-color-border);
+  color: var(--br-color-text);
+  font-family: var(--br-font-sans);
+  font-size: var(--br-font-size-xs);
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: br-fade-in var(--br-duration-fast) var(--br-ease-standard) both;
+}
+
+.br-toast-viewport {
+  position: fixed;
+  right: var(--br-space-5);
+  bottom: var(--br-space-5);
+  z-index: var(--br-z-toast);
+  display: grid;
+  gap: var(--br-space-3);
+  width: min(22rem, calc(100vw - var(--br-space-8)));
+}
+
+.br-toast {
+  --br-duration-rise: var(--br-duration-med);
+  --br-rise-from: 10px;
+  --br-blur-from: 6px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--br-space-3);
+  padding: var(--br-space-4);
+  background: var(--br-color-elevated);
+  border: 1px solid var(--br-color-border);
+  border-radius: var(--br-radius-md);
+  box-shadow: var(--br-shadow);
+  color: var(--br-color-text);
+  font-family: var(--br-font-sans);
+}
+
+.br-tablist {
+  display: flex;
+  gap: var(--br-space-1);
+  border-bottom: 1px solid var(--br-color-border);
+}
+
+.br-tab {
+  appearance: none;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--br-color-muted);
+  font-family: var(--br-font-sans);
+  font-size: var(--br-font-size-sm);
+  font-weight: var(--br-weight-medium);
+  cursor: pointer;
+}
+
+.br-tab[aria-selected='true'] {
+  color: var(--br-color-text);
+  border-bottom-color: var(--br-color-accent);
+}
+
+.br-tab:focus-visible {
+  outline: 2px solid var(--br-color-focus);
+  outline-offset: 3px;
+}
+
+.br-tab-panel {
+  padding-top: var(--br-space-4);
+  font-family: var(--br-font-sans);
+  color: var(--br-color-text);
+}
+
+.br-accordion {
+  display: grid;
+  gap: var(--br-space-2);
+}
+
+.br-accordion-item {
+  border: 1px solid var(--br-color-border);
+  border-radius: var(--br-radius-md);
+  background: var(--br-color-surface);
+  overflow: hidden;
+}
+
+.br-accordion-trigger {
+  appearance: none;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--br-space-3);
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--br-color-text);
+  font-family: var(--br-font-sans);
+  font-size: var(--br-font-size-sm);
+  font-weight: var(--br-weight-medium);
+  text-align: left;
+  cursor: pointer;
+}
+
+.br-accordion-trigger:focus-visible {
+  outline: 2px solid var(--br-color-focus);
+  outline-offset: -2px;
+}
+
+.br-accordion-trigger::after {
+  content: '';
+  flex: none;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  rotate: 45deg;
+  transition: rotate var(--br-duration-fast) var(--br-ease-standard);
+}
+
+.br-accordion-trigger[aria-expanded='true']::after {
+  rotate: 225deg;
+}
+
+.br-accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--br-duration-med) var(--br-ease-standard);
+}
+
+.br-accordion-content[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+.br-accordion-content-inner {
+  overflow: hidden;
+  padding: 0 var(--br-space-4);
+  color: var(--br-color-muted);
+  font-family: var(--br-font-sans);
+  font-size: var(--br-font-size-sm);
+  line-height: var(--br-leading-normal);
+}
+
+.br-accordion-content[data-open='true'] .br-accordion-content-inner {
+  padding-bottom: var(--br-space-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .br-dialog-backdrop,
+  .br-tooltip-content {
+    animation: none;
+  }
+
+  .br-accordion-content {
+    transition: none;
+  }
+
+  .br-accordion-trigger::after {
+    transition: none;
+  }
+}

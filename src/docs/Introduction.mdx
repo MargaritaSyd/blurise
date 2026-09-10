@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Introduction" />
+
+# blurise
+
+React UI with a cinematic motion language. Animations live in CSS; React only wires classes, stagger indices, and optional in-view triggers.
+
+## Install
+
+```bash
+npm install blurise
+```
+
+```tsx
+import { Button, Card, Heading } from 'blurise';
+import 'blurise/styles.css';
+```
+
+Peer dependencies: `react` and `react-dom` ≥ 18.
+
+## Where to look
+
+1. **Docs / Motion language** — the four primitives and how to compose them.
+2. **Motion / Primitives** — live demos with Replay.
+3. **Kit /** — actions, surfaces, form, layout, overlays, and a sample page.
+4. **Foundations / Tokens** — color, space, type, and motion variables.
+
+## Themes
+
+Use `data-br-theme="dark"` (default) or `data-br-theme="light"` on a parent. Story stages already set this for you.
+
+## Principles
+
+- CSS-first motion tokens (`--br-duration-rise`, `--br-ease-cinematic`, …).
+- `prefers-reduced-motion` from day one.
+- Prefixed surface: `--br-*` and `.br-*`.
+- Overlays never idle-float; cards and heroes may.
