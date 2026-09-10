@@ -51,6 +51,7 @@ Default (and `:root`) is dark. Switch with `data-br-theme`:
 | Blur fade  | `BlurFade`             | Enter with blur + opacity (no translate).            |
 | Scale rise | `ScaleRise`            | Enter with blur + lift + soft scale.                 |
 | Slide      | `Slide`                | Enter from `up` / `down` / `left` / `right`.         |
+| Clip wipe  | `ClipWipe`             | Clip-path reveal from an edge.                       |
 | Blur fall  | `BlurFall`             | Exit with blur + drop + fade (`active`).             |
 | Stagger    | `Stagger`              | Cascading delays via `--br-i`.                       |
 | Grain      | `Grain` / `Card grain` | Film texture overlay (not motion).                   |

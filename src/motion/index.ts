@@ -2,6 +2,7 @@ export { BlurFade, type BlurFadeProps } from './BlurFade';
 export { BlurFall, type BlurFallProps } from './BlurFall';
 export { BlurRise, type BlurRiseProps } from './BlurRise';
 export { Breathe, type BreatheProps } from './Breathe';
+export { ClipWipe, type ClipWipeFrom, type ClipWipeProps } from './ClipWipe';
 export { Float, type FloatProps } from './Float';
 export { Grain, type GrainProps } from './Grain';
 export { ScaleRise, type ScaleRiseProps } from './ScaleRise';

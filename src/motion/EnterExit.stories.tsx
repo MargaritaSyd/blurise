@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BlurFade } from './BlurFade';
 import { BlurFall } from './BlurFall';
+import { ClipWipe, type ClipWipeFrom } from './ClipWipe';
 import { ScaleRise } from './ScaleRise';
 import { Slide, type SlideFrom } from './Slide';
 import { Stagger } from './Stagger';
@@ -158,6 +159,33 @@ export const Slides: Story = {
                 body="Directional slide with opacity. No blur by design."
               />
             </Slide>
+          ))}
+        </Stagger>
+      </Replay>
+    </Stage>
+  ),
+};
+
+export const Wipes: Story = {
+  name: 'Clip wipe',
+  render: () => (
+    <Stage>
+      <Replay>
+        <Stagger
+          gap={70}
+          style={{
+            display: 'grid',
+            gap: 'var(--br-space-3)',
+            maxWidth: '22rem',
+          }}
+        >
+          {(['left', 'right', 'up', 'down'] as ClipWipeFrom[]).map((from) => (
+            <ClipWipe key={from} from={from}>
+              <DemoCard
+                title={`wipe ${from}`}
+                body="Clip-path reveal. More cinematic than a plain slide."
+              />
+            </ClipWipe>
           ))}
         </Stagger>
       </Replay>

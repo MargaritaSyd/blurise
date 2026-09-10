@@ -6,6 +6,7 @@ import {
   Breathe,
   Button,
   Card,
+  ClipWipe,
   Dialog,
   Float,
   Grain,
@@ -27,6 +28,7 @@ describe('package entry', () => {
     expect(BlurFade).toBeTypeOf('function');
     expect(ScaleRise).toBeTypeOf('function');
     expect(Slide).toBeTypeOf('function');
+    expect(ClipWipe).toBeTypeOf('function');
     expect(BlurFall).toBeTypeOf('function');
     expect(Breathe).toBeTypeOf('function');
     expect(Shimmer).toBeTypeOf('function');

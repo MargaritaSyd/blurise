@@ -61,6 +61,20 @@ import { Slide } from 'blurise';
 - Class: `.br-slide.br-slide--{from}` → `.br-slide-active`
 - Token: `--br-slide-from`
 
+### Clip wipe
+
+Directional reveal with `clip-path` — more cinematic than a plain slide.
+
+```tsx
+import { ClipWipe } from 'blurise';
+
+<ClipWipe from="left">…</ClipWipe>
+<ClipWipe from="up" inView>…</ClipWipe>
+```
+
+- `from`: `up` | `down` | `left` | `right`
+- Class: `.br-wipe.br-wipe--{from}` → `.br-wipe-active`
+
 Under `prefers-reduced-motion`, all enters become opacity-only (`br-rise-reduced`).
 
 ## Exit

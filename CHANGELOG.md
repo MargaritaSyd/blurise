@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Enter/exit motion: `BlurFade`, `ScaleRise`, `Slide` (`from`), and `BlurFall` (`active`).
+- Enter/exit motion: `BlurFade`, `ScaleRise`, `Slide` (`from`), `ClipWipe` (`from`), and `BlurFall` (`active`).
 - Idle motion: `Breathe` and `Shimmer`.
 - Shared `useMotionActive` for in-view enter primitives.
 - Tokens `--br-scale-from`, `--br-slide-from`, `--br-breathe-*`, `--br-shimmer-*`.

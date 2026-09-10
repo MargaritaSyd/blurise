@@ -84,6 +84,16 @@
   }
 }
 
+@keyframes br-wipe {
+  from {
+    clip-path: var(--br-wipe-from);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 @keyframes br-float {
   0%,
   100% {
@@ -176,6 +186,35 @@
 
 .br-slide.br-slide-active {
   animation: br-slide var(--br-duration-rise) var(--br-ease-cinematic) both;
+  animation-delay: calc(var(--br-i, 0) * var(--br-stagger-gap));
+}
+
+.br-wipe {
+  --br-wipe-from: inset(0 100% 0 0);
+}
+
+.br-wipe--left {
+  --br-wipe-from: inset(0 100% 0 0);
+}
+
+.br-wipe--right {
+  --br-wipe-from: inset(0 0 0 100%);
+}
+
+.br-wipe--up {
+  --br-wipe-from: inset(0 0 100% 0);
+}
+
+.br-wipe--down {
+  --br-wipe-from: inset(100% 0 0 0);
+}
+
+.br-wipe:not(.br-wipe-active) {
+  clip-path: var(--br-wipe-from);
+}
+
+.br-wipe.br-wipe-active {
+  animation: br-wipe var(--br-duration-rise) var(--br-ease-cinematic) both;
   animation-delay: calc(var(--br-i, 0) * var(--br-stagger-gap));
 }
 
@@ -298,6 +337,11 @@
     transform: none;
   }
 
+  .br-wipe:not(.br-wipe-active) {
+    clip-path: none;
+    opacity: 0;
+  }
+
   .br-fade:not(.br-fade-active) {
     filter: none;
   }
@@ -305,7 +349,8 @@
   .br-rise.br-rise-active,
   .br-fade.br-fade-active,
   .br-scale-rise.br-scale-rise-active,
-  .br-slide.br-slide-active {
+  .br-slide.br-slide-active,
+  .br-wipe.br-wipe-active {
     animation-name: br-rise-reduced;
   }
 

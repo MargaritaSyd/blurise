@@ -8,6 +8,7 @@ import { BlurFall } from './BlurFall';
 import { BlurRise } from './BlurRise';
 import { Float } from './Float';
 import { Grain } from './Grain';
+import { ClipWipe } from './ClipWipe';
 import { ScaleRise } from './ScaleRise';
 import { Shimmer } from './Shimmer';
 import { Slide } from './Slide';
@@ -25,6 +26,7 @@ describe('motion.css', () => {
     '@keyframes br-fade',
     '@keyframes br-scale-rise',
     '@keyframes br-slide',
+    '@keyframes br-wipe',
     '@keyframes br-fall',
     '@keyframes br-fall-reduced',
     '@keyframes br-float',
@@ -35,6 +37,7 @@ describe('motion.css', () => {
     '.br-fade',
     '.br-scale-rise',
     '.br-slide',
+    '.br-wipe',
     '.br-fall',
     '.br-stagger',
     '.br-grain',
@@ -115,6 +118,17 @@ describe('Slide', () => {
       'br-slide',
       'br-slide--left',
       'br-slide-active',
+    );
+  });
+});
+
+describe('ClipWipe', () => {
+  it('sets direction and active classes', () => {
+    render(<ClipWipe from="up">Reveal</ClipWipe>);
+    expect(screen.getByText('Reveal')).toHaveClass(
+      'br-wipe',
+      'br-wipe--up',
+      'br-wipe-active',
     );
   });
 });
