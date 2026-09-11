@@ -9,7 +9,15 @@ import { Text } from './Text';
 
 const meta = {
   title: 'Kit/Layout',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Composition overview of layout primitives (Container, Stack, Grid). For interactive API docs and Controls, open each component under Kit.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;
