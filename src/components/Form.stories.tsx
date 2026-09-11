@@ -11,7 +11,15 @@ import { Textarea } from './Textarea';
 
 const meta = {
   title: 'Kit/Form',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Composition overview of form kit pieces (Label, Input, Textarea, Checkbox, Switch, Button). For interactive API docs and Controls, open each component under Kit.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;
@@ -27,7 +35,7 @@ export const Fields: Story = {
         <Stack gap={4}>
           <Stack gap={2}>
             <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" placeholder="Ana Margarita" />
+            <Input id="name" name="name" placeholder="Your name" />
           </Stack>
           <Stack gap={2}>
             <Label htmlFor="email">Email</Label>
