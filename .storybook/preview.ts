@@ -6,7 +6,37 @@ const preview: Preview = {
     layout: 'centered',
     options: {
       storySort: {
-        order: ['Docs', 'Foundations', 'Motion', 'Kit'],
+        // Compose-first: type → structure → surfaces → inputs → actions → overlays → page
+        order: [
+          'Docs',
+          ['Introduction', 'Motion language'],
+          'Foundations',
+          'Motion',
+          ['Primitives', 'Enter exit', 'Idle'],
+          'Kit',
+          [
+            'Typography',
+            'Heading',
+            'Text',
+            'Link',
+            'Layout',
+            'Stack',
+            'Grid',
+            'Container',
+            'Separator',
+            'Surfaces',
+            'Form',
+            'Label',
+            'Input',
+            'Textarea',
+            'Checkbox',
+            'Switch',
+            'Actions',
+            'Button',
+            'Overlays',
+            'Page',
+          ],
+        ],
       },
     },
     backgrounds: {
